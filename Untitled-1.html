@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AI Image Detector</title>
+  <link rel="stylesheet" href="stt.css">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <div class="logo">
+      <img src="logo.png" alt="Logo">
+    </div>
+
+    <div class="nav-links">
+      <a href="#">Home</a>
+      <a href="#">About AI</a>
+      <a href="#">Paper</a>
+      <a href="#">Contact</a>
+      <span></span>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-text">
+      <h1>AIG-Detect</h1>
+      <h2>AI-Generated Image Detection</h2>
+      <p>Upload any image and let our AI model analyze it and estimate whether it is real or AI-generated.</p>
+
+      <div class="hero-buttons">
+        <button class="btn">Try Now</button>
+        <button class="btn btn-secondary">Learn More</button>
+      </div>
+
+      <div class="hero-tags">
+        <span>Fast</span>
+        <span>Accurate</span>
+        <span>Secure</span>
+      </div>
+    </div>
+
+    <div class="hero-img">
+      <div class="robot-box">
+        <img src="re-pot.png" alt="Robot" class="robot-face">
+        <img src="eyes-removebg-preview.png" alt="Eyes" class="robot-eyes" id="robotEyes">
+      </div>
+    </div>
+  </section>
+
+  <!-- UPLOAD -->
+  <section class="upload-section">
+    <h2>Upload Your Image</h2>
+
+    <div class="upload-box">
+      <label for="fileInput">Click or Drag Image Here</label>
+      <input type="file" id="fileInput" />
+      <button class="btn upload-btn" onclick="analyze()">Analyze</button>
+     
+      <div class="loading-robot" id="loadingRobot">
+  <img src="RO-SERCH.png" alt="Loading Robot">
+  <p>Analyzing image...</p>
+</div>
+
+      <div class="result" id="result"></div>
+    </div>
+  </section>
+
+  <!-- FEATURES -->
+  <section class="features">
+    <div class="card">
+      <h3>⚡ Fast</h3>
+      <p>Instant analysis with smooth experience.</p>
+    </div>
+
+    <div class="card">
+      <h3>🎯 Accurate</h3>
+      <p>AI-powered prediction with confidence score.</p>
+    </div>
+
+    <div class="card">
+      <h3>🔒 Secure</h3>
+      <p>Your uploaded images stay private and safe.</p>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 AI Image Detector | Graduation Project</p>
+  </footer>
+
+<script>
+  function analyze() {
+    const result = document.getElementById("result");
+    const loadingRobot = document.getElementById("loadingRobot");
+    const fileInput = document.getElementById("fileInput");
+
+    if (!fileInput.files.length) {
+      result.innerHTML = "⚠ Please upload an image first.";
+      loadingRobot.style.display = "none";
+      return;
+    }
+
+    result.innerHTML = "";
+    loadingRobot.style.display = "block";
+
+    setTimeout(() => {
+      loadingRobot.style.display = "none";
+      result.innerHTML = "✅ Real Image (87%)";
+    }, 2500);
+  }
+
+  const robotEyes = document.getElementById("robotEyes");
+
+  function moveEyes(clientX, clientY) {
+    const centerX = window.innerWidth / 2;
+    const centerY = window.innerHeight / 2;
+
+    const moveX = (clientX - centerX) / 35;
+    const moveY = (clientY - centerY) / 35;
+
+    robotEyes.style.transform = `translate(${moveX}px, ${moveY}px)`;
+  }
+
+  document.addEventListener("mousemove", (e) => {
+    moveEyes(e.clientX, e.clientY);
+  });
+
+  document.addEventListener("touchmove", (e) => {
+    const touch = e.touches[0];
+    moveEyes(touch.clientX, touch.clientY);
+  });
+
+  document.addEventListener("mouseleave", () => {
+    robotEyes.style.transform = `translate(0px, 0px)`;
+  });
+
+  document.addEventListener("touchend", () => {
+    robotEyes.style.transform = `translate(0px, 0px)`;
+  });
+</script>
+
+</body>
+</html>
