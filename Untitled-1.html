@@ -17,8 +17,9 @@
 
     <div class="nav-links">
       <a href="#">Home</a>
-      <a href="#">About AI</a>
-      <a href="#">Paper</a>
+      <a href="#">About </a>
+      <a href="#">How It Works</a>
+       <a href="#">Upload</a>
       <a href="#">Contact</a>
       <span></span>
     </div>
@@ -28,18 +29,17 @@
   <section class="hero">
     <div class="hero-text">
       <h1>AIG-Detect</h1>
-      <h2>AI-Generated Image Detection</h2>
-      <p>Upload any image and let our AI model analyze it and estimate whether it is real or AI-generated.</p>
+      <h2>Smart Detection for AI-Generated and Real Images</h2>
+      <p>Our model analyzes uploaded images and predicts whether they are real or AI-generated using intelligent visual pattern detection.</p>
 
       <div class="hero-buttons">
-        <button class="btn">Try Now</button>
-        <button class="btn btn-secondary">Learn More</button>
+<a href="#upload" class="btn">Upload Image</a>        
       </div>
 
       <div class="hero-tags">
-        <span>Fast</span>
-        <span>Accurate</span>
-        <span>Secure</span>
+        <span>AI-Powered Detection</span>
+        <span>Confidence Scoring</span>
+        <span>Image Preview & Analysis</span>
       </div>
     </div>
 
@@ -52,12 +52,14 @@
   </section>
 
   <!-- UPLOAD -->
-  <section class="upload-section">
-    <h2>Upload Your Image</h2>
+<section class="upload-section" id="upload">    <h2>Upload Your Image</h2>
 
     <div class="upload-box">
       <label for="fileInput">Click or Drag Image Here</label>
       <input type="file" id="fileInput" />
+
+      <img id="previewImage" class="preview-image" alt="Preview">
+      
       <button class="btn upload-btn" onclick="analyze()">Analyze</button>
      
       <div class="loading-robot" id="loadingRobot">
@@ -141,6 +143,24 @@
   document.addEventListener("touchend", () => {
     robotEyes.style.transform = `translate(0px, 0px)`;
   });
+
+  const fileInput = document.getElementById("fileInput");
+const previewImage = document.getElementById("previewImage");
+
+fileInput.addEventListener("change", function () {
+  const file = this.files[0];
+
+  if (file) {
+    const reader = new FileReader();
+
+    reader.onload = function (e) {
+      previewImage.src = e.target.result;
+      previewImage.style.display = "block";
+    };
+
+    reader.readAsDataURL(file);
+  }
+});
 </script>
 
 </body>
