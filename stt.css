@@ -10,13 +10,26 @@ html {
 }
 
 body {
-  
-background: 
-  linear-gradient(rgba(87, 29, 110, 0.75), rgba(104, 51, 119, 0.82)),
-  url("bac-removebg-preview.png") center/cover no-repeat fixed; 
-   color: white;
+  background: 
+    linear-gradient(rgba(87, 29, 110, 0.75), rgba(104, 51, 119, 0.82)),
+    url("bac-removebg-preview.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: white;
   min-height: 100vh;
   overflow-x: hidden;
+}
+body.dark-mode {
+  background:
+    linear-gradient(rgba(8, 3, 14, 0.82), rgba(24, 8, 34, 0.88)),
+    url("bac-removebg-preview.png");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  color: #f5eefe;
 }
 
 /* NAVBAR */
@@ -97,6 +110,84 @@ nav {
 
 .nav-links a:nth-child(4):hover ~ span {
   left: 415px;
+}
+
+.theme-btn {
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255,255,255,0.10);
+  border: 1px solid rgba(255,255,255,0.12);
+  color: white;
+  font-size: 20px;
+  padding: 10px 14px;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.theme-btn:hover {
+  background: rgba(255,255,255,0.18);
+}
+
+
+
+body.dark-mode nav {
+  background: rgba(10, 5, 18, 0.45);
+}
+
+body.dark-mode .nav-links {
+  background: rgba(55, 22, 73, 0.78);
+}
+
+body.dark-mode .nav-links span {
+  background: linear-gradient(45deg, #4b1d61, #7b35a0);
+}
+
+body.dark-mode .upload-box,
+body.dark-mode .card,
+body.dark-mode .step-card,
+body.dark-mode .model-card,
+body.dark-mode .result-card,
+body.dark-mode .stat-box {
+  background: rgba(20, 8, 29, 0.45);
+  border-color: rgba(255,255,255,0.04);
+}
+
+body.dark-mode .btn {
+  background: #6d2f88;
+}
+
+body.dark-mode .btn:hover {
+  background: #8a44aa;
+}
+
+body.dark-mode .btn-secondary {
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.18);
+}
+
+body.dark-mode .btn-secondary:hover {
+  background: rgba(255,255,255,0.06);
+}
+
+body.dark-mode .upload-box,
+body.dark-mode .card,
+body.dark-mode .step-card,
+body.dark-mode .model-card,
+body.dark-mode .result-card,
+body.dark-mode .stat-box {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.05);
+}
+
+body.dark-mode .upload-box {
+  border: 2px dashed #8f56ca;
+}
+
+body.dark-mode .step-number {
+  background: #8d46a8;
 }
 
 /* HERO */
