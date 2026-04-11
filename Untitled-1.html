@@ -6,6 +6,7 @@
   <title>AI Image Detector</title>
   <link rel="stylesheet" href="stt.css">
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
 </head>
 <body>
 
@@ -15,14 +16,14 @@
       <img src="logo.png" alt="Logo">
     </div>
 
-    <div class="nav-links">
-      <a href="#">Home</a>
-      <a href="#">About </a>
-      <a href="#">How It Works</a>
-       <a href="#">Upload</a>
-      <a href="#">Contact</a>
-      <span></span>
-    </div>
+<div class="nav-links">
+  <a href="#">Home</a>
+  <a href="#" id="openAbout">About</a>
+  <a href="#">How It Works</a>
+  <a href="#upload">Upload</a>
+  <a href="#">Contact</a>
+  <span></span>
+</div>
 
     <button id="themeToggle" class="theme-btn">🌙</button>
   </nav>
@@ -53,6 +54,8 @@
     </div>
   </section>
 
+  
+
   <!-- UPLOAD -->
 <section class="upload-section" id="upload">    <h2>Upload Your Image</h2>
 
@@ -72,6 +75,8 @@
       <div class="result" id="result"></div>
     </div>
   </section>
+
+
 
   <!-- FEATURES -->
   <section class="features">
@@ -95,6 +100,49 @@
   <footer>
     <p>© 2026 AI Image Detector | Graduation Project</p>
   </footer>
+
+<div class="about-modal" id="aboutModal">
+  <div class="about-overlay" id="closeAbout"></div>
+
+  <div class="about-popup">
+    <button class="close-about" id="closeAboutBtn">&times;</button>
+
+    <h2>About The Project</h2>
+    <p class="about-desc">
+      This graduation project focuses on detecting AI-generated images using intelligent visual analysis.
+    </p>
+
+    <div class="about-scene">
+      <div class="about-carousel" id="aboutCarousel">
+        <div class="about-card">
+          <h3>Project Idea</h3>
+          <p>Detect whether an uploaded image is real or AI-generated.</p>
+        </div>
+
+        <div class="about-card">
+          <h3>Objective</h3>
+          <p>Provide a smart and simple tool for image authenticity detection.</p>
+        </div>
+
+        <div class="about-card">
+          <h3>Methodology</h3>
+          <p>The model analyzes visual patterns and predicts the image class.</p>
+        </div>
+
+        <div class="about-card">
+          <h3>Output</h3>
+          <p>The system returns a prediction result with confidence estimation.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="about-controls">
+  <button id="aboutPrev" class="about-nav-btn">←</button>
+  <button id="aboutNext" class="about-nav-btn">→</button>
+</div>
+
+  </div>
+</div>
 
 <script src="script.js"></script>
 
